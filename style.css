@@ -1,0 +1,54 @@
+* { margin: 0; padding: 0; box-sizing: border-box; user-select: none; font-family: 'Orbitron', sans-serif; }
+body, html { width: 100vw; height: 100vh; background: #020205; overflow: hidden; touch-action: none; }
+
+.scanlines {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+    background-size: 100% 3px; pointer-events: none; z-index: 10;
+}
+
+canvas { display: block; width: 100vw; height: 100vh; }
+
+#ui { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+    padding: 10px 3vw; display: flex; flex-direction: column; 
+    justify-content: space-between; pointer-events: none; color: #fff; z-index: 20;
+}
+
+@media screen and (orientation: portrait) {
+    #ui, canvas {
+        width: 100vh !important;
+        height: 100vw !important;
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+        position: absolute;
+        top: -100vw;
+        left: 0;
+    }
+}
+
+.hud-top { display: flex; justify-content: space-between; width: 100%; }
+.score-group, .combo-group { 
+    background: rgba(0, 0, 0, 0.5); padding: 8px 15px; 
+    border-left: 4px solid #0fc; backdrop-filter: blur(8px); 
+}
+.combo-group { border-left-color: #ff0; text-align: right; }
+#score, #combo { font-size: min(5vw, 32px); font-weight: 900; }
+small { font-size: 10px; color: #0fc; letter-spacing: 2px; display: block; }
+
+#start-screen, #gameover {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: rgba(0, 5, 10, 0.95); padding: 40px; border: 2px solid #0fc;
+    text-align: center; pointer-events: auto; z-index: 30; min-width: 320px;
+}
+
+button { 
+    background: #0fc; border: none; padding: 15px; width: 100%; 
+    font-weight: 900; cursor: pointer; color: #000; margin-top: 20px;
+}
+
+.hud-bottom { width: 100%; display: flex; justify-content: center; margin-bottom: 5px; }
+.fuel-container { width: 98%; max-width: none; }
+.fuel-header { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 5px; color: #0fc; }
+.bar-bg { width: 100%; height: 10px; background: #111; border-radius: 5px; overflow: hidden; border: 1px solid rgba(0,255,204,0.3); }
+#fuel-bar { height: 100%; width: 100%; background: #0fc; transition: width 0.2s ease; box-shadow: 0 0 15px #0fc; }
