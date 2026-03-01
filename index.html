@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AETHER DRIFT | Campfire 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <canvas id="game"></canvas>
+    
+    <div id="ui">
+        <div class="hud-top">
+            <div class="score-group">
+                <small>DISTANCE</small>
+                <div id="score">00000</div>
+            </div>
+            <div class="combo-group">
+                <div id="combo">x1.0</div>
+                <small>MULTIPLIER</small>
+            </div>
+        </div>
+
+        <div id="start-screen">
+            <h1>AETHER DRIFT</h1>
+            <p>DRAG UP/DOWN TO STEER</p>
+            <div class="hint">AVOID ☄️ • COLLECT ⚡</div>
+        </div>
+
+        <div id="gameover" style="display:none">
+            <h2>SYSTEM FAILURE</h2>
+            <div id="scores"></div>
+            <button onclick="restart()">REBOOT CORE</button>
+        </div>
+
+        <div class="hud-bottom">
+            <div class="fuel-container">
+                <div class="fuel-header">
+                    <span id="world">NEBULA SECTOR</span>
+                    <span class="fuel-status">SYSTEM STABLE</span>
+                </div>
+                <div class="bar-bg">
+                    <div id="fuel-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
